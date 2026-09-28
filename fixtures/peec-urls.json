@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "url": "https://example.com/de/steuern-berlin",
+      "mentions": 40,
+      "citations": 20,
+      "citation_rate": 0.5
+    },
+    {
+      "url": "https://example.com/de/homeoffice",
+      "mentions": 100,
+      "citations": 5,
+      "citation_rate": 0.05
+    }
+  ]
+}

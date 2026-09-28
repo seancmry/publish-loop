@@ -1,0 +1,25 @@
+{
+  "pages": [
+    {
+      "content_id": "cnt_steuern_berlin",
+      "locale": "de",
+      "url": "https://example.com/de/steuern-berlin",
+      "expected_canonical": "https://example.com/de/steuern-berlin",
+      "note": "In the Peec sample — should ship when fetch matches."
+    },
+    {
+      "content_id": "cnt_steuern_berlin",
+      "locale": "en",
+      "url": "https://example.com/en/taxes-berlin",
+      "expected_canonical": "https://example.com/en/taxes-berlin",
+      "note": "Not in the Peec sample — should hold."
+    },
+    {
+      "content_id": "cnt_home_office",
+      "locale": "de",
+      "url": "https://example.com/de/homeoffice",
+      "expected_canonical": "https://example.com/de/homeoffice",
+      "note": "In sample with low citation rate — still ships (missing rate holds, low does not)."
+    }
+  ]
+}

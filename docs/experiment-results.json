@@ -1,0 +1,102 @@
+[
+  {
+    "label": "Berlin taxes (DE)",
+    "content_id": "cnt_steuern_berlin",
+    "locale": "de",
+    "url": "https://example.com/de/steuern-berlin",
+    "status": "ship",
+    "reasons": [],
+    "why": "The page and the report match, so it can go live.",
+    "citation_rate": 0.5,
+    "in_sample_report": true
+  },
+  {
+    "label": "Berlin taxes (EN)",
+    "content_id": "cnt_steuern_berlin",
+    "locale": "en",
+    "url": "https://example.com/en/taxes-berlin",
+    "status": "held",
+    "reasons": [
+      "address missing from Peec report"
+    ],
+    "why": "This address is not in the report, so it stays held.",
+    "citation_rate": null,
+    "in_sample_report": false
+  },
+  {
+    "label": "Home office (DE)",
+    "content_id": "cnt_home_office",
+    "locale": "de",
+    "url": "https://example.com/de/homeoffice",
+    "status": "ship",
+    "reasons": [],
+    "why": "The page and the report match, so it can go live.",
+    "citation_rate": 0.05,
+    "in_sample_report": true
+  },
+  {
+    "label": "Filing deadline (EN)",
+    "content_id": "cnt_elster",
+    "locale": "en",
+    "url": "https://example.com/en/filing-deadline",
+    "status": "held",
+    "reasons": [
+      "address missing from Peec report"
+    ],
+    "why": "This address is not in the report, so it stays held.",
+    "citation_rate": null,
+    "in_sample_report": false
+  },
+  {
+    "label": "Empty page",
+    "content_id": "cnt_empty",
+    "locale": "de",
+    "url": "https://example.com/de/steuern-berlin",
+    "status": "held",
+    "reasons": [
+      "empty body"
+    ],
+    "why": "The page has no text, so it stays held.",
+    "citation_rate": 0.5,
+    "in_sample_report": true
+  },
+  {
+    "label": "Wrong hidden label",
+    "content_id": "cnt_bad_label",
+    "locale": "de",
+    "url": "https://example.com/de/steuern-berlin",
+    "status": "held",
+    "reasons": [
+      "hidden label mismatch (https://example.com/de/other-page != https://example.com/de/steuern-berlin)"
+    ],
+    "why": "The hidden label does not match the address, so it stays held.",
+    "citation_rate": 0.5,
+    "in_sample_report": true
+  },
+  {
+    "label": "Wrong public address on page",
+    "content_id": "cnt_bad_canon",
+    "locale": "de",
+    "url": "https://example.com/de/steuern-berlin",
+    "status": "held",
+    "reasons": [
+      "canonical mismatch (https://example.com/de/somewhere-else != https://example.com/de/steuern-berlin)"
+    ],
+    "why": "The public address on the page does not match what we expected, so it stays held.",
+    "citation_rate": 0.5,
+    "in_sample_report": true
+  },
+  {
+    "label": "Missing how-often-named score",
+    "content_id": "cnt_no_rate",
+    "locale": "de",
+    "url": "https://example.com/de/kirchensteuer",
+    "status": "held",
+    "reasons": [
+      "citation_rate missing from report"
+    ],
+    "why": "The report lists the page, but not how often it was named, so it stays held.",
+    "citation_rate": null,
+    "in_sample_report": "no_rate"
+  }
+]

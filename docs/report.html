@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Publish Loop — a short note</title>
+  <style>
+    @font-face { font-family: Geist; src: url("fonts/Geist-Regular.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: Geist; src: url("fonts/Geist-SemiBold.woff2") format("woff2"); font-weight: 600; }
+    @page { margin: 14mm 14mm 16mm; }
+    body { font-family: Geist, sans-serif; margin: 0 auto; max-width: 860px; color: #111; }
+    h1 { font-weight: 600; color: #111; margin: 0 0 8px; font-size: 28px; }
+    h2 { font-weight: 600; color: #0a5f8a; margin: 0 0 8px; font-size: 20px; }
+    p, li { line-height: 1.45; }
+    code { font-family: ui-monospace, monospace; font-size: 0.92em; }
+    .keep { break-inside: avoid; page-break-inside: avoid; }
+    .results { break-before: page; page-break-before: always; }
+    .notes { break-before: page; page-break-before: always; }
+    img { width: 100%; border: 1px solid #e6e6e6; }
+  </style>
+</head>
+<body>
+  <h1>Should this page go live?</h1>
+  <p>We checked 8 pages against a saved sample report. Nothing here calls the live web. The page cannot know whether it was named. The report can. The loop waits for both before it says ship or hold.</p>
+  <p>A page can go live when its address, text, and hidden label agree with the report. How often it was named can be low. A missing score holds it back. Every decision is written to an audit log you can open later.</p>
+  <section class="keep">
+    <img src="images/overview.png" alt="How the loop works">
+  </section>
+  <section class="keep">
+    <img src="images/catalog.png" alt="The pages we checked">
+  </section>
+  <section class="keep results">
+    <img src="images/results.png" alt="What the check decided">
+  </section>
+  <section class="notes">
+    <h2>What this is worth</h2>
+    <ul>
+      <li>Publishing stops being a gut feel. The page and the naming report have to agree first.</li>
+      <li>A low “how often named” score still lets a page go live. A missing score does not. That difference is easy to miss by hand.</li>
+      <li>Empty text, a wrong hidden label, or a wrong public address hold the page before the report is even used.</li>
+      <li>Each run leaves a written trail. You can show a teammate why something stayed held without opening five tabs.</li>
+    </ul>
+    <p>Run the check again with <code>python experiments.py</code>. For a live fetch later, use <code>python loop.py --live</code> with a Firecrawl key.</p>
+  </section>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Overview</title>
+  <style>
+    @font-face { font-family: Geist; src: url("fonts/Geist-Regular.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: Geist; src: url("fonts/Geist-SemiBold.woff2") format("woff2"); font-weight: 600; }
+    body { font-family: Geist, sans-serif; margin: 24px; background: #fff; color: #111; }
+    h1 { font-size: 18px; font-weight: 600; margin: 0 0 16px; }
+    .row { display: flex; align-items: stretch; gap: 12px; }
+    .card { flex: 1; background: #f0f7fb; border-top: 4px solid #0a5f8a; padding: 14px 16px; }
+    .card b { display: block; color: #0a5f8a; font-size: 13px; margin-bottom: 6px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.35; }
+    .plus, .arrow { align-self: center; color: #0a5f8a; font-weight: 600; font-size: 22px; }
+    .go { flex: 0.9; background: #e9f8ef; border-top: 4px solid #067a3a; }
+    .go b { color: #067a3a; }
+  </style>
+</head>
+<body>
+  <h1>A page goes live only when the loop finishes cleanly</h1>
+  <div class="row">
+    <div class="card"><b>Fetch the page</b><p>Read the live address, text, and hidden label.</p></div>
+    <div class="plus">+</div>
+    <div class="card"><b>Check the report</b><p>Was this address named, and is the score there?</p></div>
+    <div class="plus">+</div>
+    <div class="card"><b>Write it down</b><p>Keep a clear ship or hold decision in the audit log.</p></div>
+    <div class="arrow">→</div>
+    <div class="card go"><b>Can go live</b><p>Or stay held, with a reason anyone can read.</p></div>
+  </div>
+</body>
+</html>

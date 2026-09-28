@@ -1,0 +1,38 @@
+{
+  "https://example.com/de/steuern-berlin": {
+    "url": "https://example.com/de/steuern-berlin",
+    "title": "Steuern in Berlin",
+    "body": "Kurzüberblick zur Berliner Steuerlage für Selbstständige.",
+    "canonical": "https://example.com/de/steuern-berlin",
+    "hreflang": { "de": "https://example.com/de/steuern-berlin", "en": "https://example.com/en/taxes-berlin" },
+    "json_ld": {
+      "@type": "Article",
+      "headline": "Steuern in Berlin",
+      "url": "https://example.com/de/steuern-berlin"
+    }
+  },
+  "https://example.com/en/taxes-berlin": {
+    "url": "https://example.com/en/taxes-berlin",
+    "title": "Taxes in Berlin",
+    "body": "A short overview of Berlin tax basics for freelancers.",
+    "canonical": "https://example.com/en/taxes-berlin",
+    "hreflang": { "de": "https://example.com/de/steuern-berlin", "en": "https://example.com/en/taxes-berlin" },
+    "json_ld": {
+      "@type": "Article",
+      "headline": "Taxes in Berlin",
+      "url": "https://example.com/en/taxes-berlin"
+    }
+  },
+  "https://example.com/de/homeoffice": {
+    "url": "https://example.com/de/homeoffice",
+    "title": "Homeoffice absetzen",
+    "body": "Wann das Arbeitszimmer steuerlich zählt.",
+    "canonical": "https://example.com/de/homeoffice",
+    "hreflang": { "de": "https://example.com/de/homeoffice", "en": "https://example.com/en/home-office" },
+    "json_ld": {
+      "@type": "Article",
+      "headline": "Homeoffice absetzen",
+      "url": "https://example.com/de/homeoffice"
+    }
+  }
+}

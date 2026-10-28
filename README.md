@@ -1,26 +1,14 @@
-# Publish Loop
+# Publish loop
 
-## The problem
+This is the run: fetch a page, decide with the same three-way check as [content-gate](https://github.com/seancmry/content-gate), and append one line to `out/audit.jsonl`. The line says **can go live** or **held back**, and why. The next person can open the log. They do not have to reconstruct the decision from a chat.
 
-Someone has to decide: can this page go live? Too often that answer lives in someone’s head, or in a chat that disappears.
-
-A page can show its address and text. A naming report can show whether answer engines named that address. Neither alone is enough — and without a written trail, the next person cannot see **why** something was held back.
-
-**What this program does:** it runs a small loop — fetch the page → check it against a naming report → write a clear **can go live** or **held back** line into an audit log. A saved sample stands in for the live web and live report, so you can try it with no account.
+content-gate owns the rule and the database write (`apply_check`). This repo owns the fetch and the audit trail. A saved sample stands in for the live web and the live report, so the loop runs with no account.
 
 ![A page goes live only when the loop finishes cleanly](docs/images/overview.png)
 
-## Who it helps
+## Run it
 
-- People who publish or review web content and want a repeatable check  
-- Engineers or agents that need a **fetch → decide → write it down** path  
-- Teammates who need a hold reason they can open later (`out/audit.jsonl`)  
-
-For the deeper publish rule and database story, see [content-gate](https://github.com/seancmry/content-gate). This repo owns the loop you would drive day to day.
-
-## How to run
-
-**Offline lab** (recommended first):
+**Eight sample pages, no API calls:**
 
 ```bash
 python3 -m venv .venv
@@ -29,7 +17,7 @@ pip install -r requirements.txt
 python experiments.py
 ```
 
-Eight sample pages. Some can go live; some are held on purpose (missing from the report, empty text, wrong label, missing score).
+Some can go live. Some are held on purpose: missing from the report, empty text, a wrong hidden label, or a missing score. A low naming rate still allows the page. A missing rate holds it.
 
 ![The pages we checked](docs/images/catalog.png)
 
@@ -37,13 +25,13 @@ Eight sample pages. Some can go live; some are held on purpose (missing from the
 
 Lab PDF: [docs/publish-loop-lab.pdf](docs/publish-loop-lab.pdf).
 
-**One offline run** (same idea, single path):
+**One offline path:**
 
 ```bash
 python loop.py
 ```
 
-### Optional: live fetch
+### Live fetch
 
 Needs `FIRECRAWL_API_KEY` in `.env`. The naming report stays the saved sample unless you wire a live report later.
 
@@ -51,7 +39,7 @@ Needs `FIRECRAWL_API_KEY` in `.env`. The naming report stays the saved sample un
 python loop.py --live --url https://www.firecrawl.dev
 ```
 
-### Rebuild lab screenshots / PDF
+### Rebuild the lab screenshots and PDF
 
 ```bash
 pip install playwright
@@ -59,17 +47,15 @@ playwright install chromium
 python scripts/make_lab_pdf.py
 ```
 
----
+## Inputs
 
-## What the words mean
-
-| Word | What it means |
+| Input | What the loop does with it |
 | --- | --- |
-| **Address** | Public link — page and report are matched on this. |
-| **Hidden label** | Note on the page that must repeat the same address. |
-| **How often named** | Of the times found, how often named. Low is OK; **missing** blocks. |
-| **Can go live** | Page and report match. |
-| **Held back** | Something does not match. |
-| **Audit log** | Written decisions in `out/audit.jsonl`. |
+| `fixtures/pages.json` | The queue of addresses to check. |
+| `fixtures/live-pages.json` | Saved fetches, so the offline run needs no key. |
+| `fixtures/peec-urls.json` | Saved naming report. Same shape as content-gate. |
+| `--url` | Check one address. Default is every row in the queue. |
+| `--live` | Fetch with Firecrawl. Without `FIRECRAWL_API_KEY`, the script exits. |
+| `out/audit.jsonl` | One decision per line: `ship` or `hold`, the reasons, the naming rate, and the time. |
 
-Full field list: `VARIABLE_SCHEMA.md`.
+Details are in `VARIABLE_SCHEMA.md`.
